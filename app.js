@@ -8,10 +8,9 @@ const data = JSON.parse(localStorage.getItem('items'))
 
 
 
-
 data.forEach(item => {
-  addTask(item)
-})
+   addTask(item)
+ })
 
 function loadEvents(){
     document.querySelector('form').addEventListener('submit', submit);
@@ -40,8 +39,16 @@ function addTask(task){
     li.innerHTML = `<span class="delete">×</span><input type="checkbox"><label>${task}</label>`;
     ul.appendChild(li);
     //document.querySelector('.taskBoard').getElementsByClassName.display = 'block';
-    itemsArray.push(task);
-    localStorage.setItem('items', JSON.stringify(itemsArray))
+    if(task.constructor.toString().indexOf("itemsArray") == -1){
+
+        itemsArray.push(task);
+
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+
+
+    }
+    
+    
 
 }
 
